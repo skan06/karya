@@ -1,25 +1,22 @@
-import './App.css';
-import Home from './component/Home/Home';
-import WebFont from "webfontloader";
-import { useEffect } from 'react';
-// import store from './store';
+import "./App.css";
+import Home from "./component/Home/Home";
+import Header from "./component/Home/Header";
+import LoginSignup from "./component/Authentication/LoginSignup";
+import Profile from "./component/Profile";
+import { Route, Routes } from "react-router-dom";
+
+
 
 function App() {
-  useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ["Roboto", "Droid Sans", "Chilanka"],
-      },
-    });
-    
-    // store.dispatch(loadUser());
-    
-    // getStripeApiKey();
 
-  }, []);
   return (
     <div className="App">
-    <Home/>
+      <Header />
+      <Home />
+      <LoginSignup/>
+      <Routes>
+        <Route path="Profile" element={<Profile/>} />
+      </Routes>
     </div>
   );
 }
